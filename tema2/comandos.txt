@@ -1,0 +1,42 @@
+CREATE TABLE departamentos(dept_no TINYINT(2) NOT NULL PRIMARY KEY, dnombre VARCHAR(15), loc VARCHAR(15));
+
+INSERT INTO departamentos VALUES (10,'CONTABILIDAD','SEVILLA');
+INSERT INTO departamentos VALUES (20,'INVESTIGACION','MADRID');
+INSERT INTO departamentos VALUES (30,'VENTAS','BARCELONA');
+INSERT INTO departamentos VALUES (40,'PRODUCCION','BILBAO');
+
+SELECT * FROM departamentos;
+
+.opent c:/sqlite/ejemplo.db
+.quit
+.schema
+.tables
+
+
+CREATE TABLE empleados(EMP_NO TINYINT(2) NOT NULL PRIMARY KEY, APELLIDO VARCHAR(10), OFICIO VARCHAR(10), DIR TINYINT(2), FECHA_ALT DATE, SALARIO FLOAT(4,2), DEPT_NO TYNYINT(2), FOREIGN KEY(DEPT_NO) REFERENCES departamentos(dept_no) );
+
+CREATE TABLE empleados(EMP_NO TINYINT(2) NOT NULL PRIMARY KEY,
+APELLIDO VARCHAR(10),
+OFICIO VARCHAR(10),
+DIR TINYINT(2),
+FECHA_ALT DATE,
+SALARIO FLOAT(4,2),
+DEPT_NO TYNYINT(2),
+FOREIGN KEY(DEPT_NO) REFERENCES departamentos(dept_no) );
+
+INSERT INTO empleados VALUES (10,'perez','peon',12,'25-12-2019',1500.25,10);
+INSERT INTO empleados VALUES (20,'lopez','programador',12,'25-12-2019',1400.25,20);
+INSERT INTO empleados VALUES (30,'gutierrez','analista',12,'12-10-2019',1800.25,30);
+INSERT INTO empleados VALUES (40,'saez','junior',12,'05-11-2019',900.25,40);
+
+INSERT INTO empleados VALUES (50,'martinez','project M',12,'25-12-2019',2300.25,10);
+INSERT INTO empleados VALUES (60,'checa','senior',12,'25-12-2019',3400.25,20);
+INSERT INTO empleados VALUES (70,'sola','RR.HH',12,'12-10-2019',4800.25,30);
+INSERT INTO empleados VALUES (80,'baena','QS',12,'05-11-2019',2400.25,40);
+
+INSERT INTO empleados VALUES (90,'andujar','SISTEMAS',12,'12-10-2019',800.25,30);
+INSERT INTO empleados VALUES (11,'maya','DB M',12,'05-11-2019',3900.25,40);
+
+SELECT * FROM empleados;
+.opent c:/sqlite/ejemplo.db
+.quit

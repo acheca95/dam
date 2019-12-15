@@ -1,0 +1,37 @@
+vamos a la ruta : C:\Apache\db-derby-10.12.1.1-bin\lib>
+
+ejecutamos java -jar derbyrun.jar ij
+
+CONNECT 'jdbc:derby:BD;create=true'; para crear db
+Describe para ver la estructura de la tabla;
+https://db.apache.org/derby/docs/10.5/getstart/twwdactivity1.html
+
+comandos
+
+CREATE TABLE Departamentos
+    (ID_Dep INT PRIMARY KEY,
+    NAME_Dep VARCHAR(15),LOC_Dep VARCHAR(15));
+
+INSERT INTO Departamentos	VALUES  (1,'Sistemas','Jaen'),(2,	'RR.HH','Jaen'),(3,'Desarrollo','Jaen'),(4,'Gestion','Jaen');
+
+SELECT * FROM  Departamentos;
+
+CREATE TABLE Empleados(ID_EMP INT PRIMARY KEY,NAME_EMP VARCHAR(10),OF_EMP VARCHAR(10),DIR INT, Fecha_alt Date, salario FLOAT,COMISION INT,DEP_NO INT NOT NULL references Departamentos(ID_Dep));
+
+
+INSERT INTO empleados VALUES (10,'perez','peon',1234,'2019-12-17',1500.25,321,1);
+INSERT INTO empleados VALUES (20,'lopez','SD',2345,'2019-12-17',1400.25,423,2);
+INSERT INTO empleados VALUES (30,'guti','analista',1234,'2019-12-17',1800.25,56,3);
+INSERT INTO empleados VALUES (40,'saez','junior',1234,'2019-12-17',900.25,4);
+
+INSERT INTO empleados VALUES (50,'martinez','project M',1234,'2019-12-17',2300.25,43,1);
+INSERT INTO empleados VALUES (60,'checa','senior',1234,'2019-12-17',3400.25,67,2);
+INSERT INTO empleados VALUES (70,'sola','RR.HH',1234,'2019-12-17',4800.25,78,3);
+INSERT INTO empleados VALUES (80,'baena','QS',1234,'2019-12-17',2400.25,0,4);
+
+INSERT INTO empleados VALUES (90,'andujar','SISTEMAS',1234,'2019-12-17',800.25,2,3);
+INSERT INTO empleados VALUES (11,'maya','DB M',1234,'2019-12-17',3900.25,324,4);
+);
+ CONNECT 'jdbc:derby:BD';
+ SHOW SCHEMAS;
+ SHOW  TABLES;

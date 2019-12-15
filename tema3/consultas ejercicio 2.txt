@@ -1,0 +1,5 @@
+ --from Empleados as e where e.departamentos.deptNo=10
+--from Departamentos where  deptNo=10
+--from Departamentos as d join d.empleadoses
+--select avg(salario),count(empNo) from Empleados where departamentos.deptNo=10
+--select apellido,salario from Empleados as e where e.departamentos.deptNo=10

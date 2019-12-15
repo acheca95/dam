@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Listadodepartamentos" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30" uuid="bac59180-7056-4961-8afe-20754b4ee2b2">
+	<parameter name="titulo" class="java.lang.String"/>
+	<parameter name="autor" class="java.lang.String"/>
+	<parameter name="fecha" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT * FROM departamentos]]>
+	</queryString>
+	<field name="dept_no" class="java.lang.Integer"/>
+	<field name="dnombre" class="java.lang.String"/>
+	<field name="loc" class="java.lang.String"/>
+	<title>
+		<band height="60">
+			<textField>
+				<reportElement x="0" y="10" width="500" height="40" uuid="2328ac96-2471-4b55-a21f-88ef30d3ef29"/>
+				<textElement textAlignment="Center">
+					<font size="24"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{titulo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="40" width="500" height="20" uuid="49c9c839-b9c3-46df-8aa5-d1985e888a3a"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["Realizado por: " + $P{autor}
+                        + " on " + $P{fecha}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="30">
+			<rectangle>
+				<reportElement x="0" y="0" width="500" height="25" uuid="5b7d559f-4de4-4fb3-9171-766a0239f78d"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="5" y="5" width="100" height="15" uuid="d88c967f-ec0f-435a-95b9-63793def3f7c"/>
+				<text><![CDATA[Código depart]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="105" y="5" width="150" height="15" uuid="1b875642-d2f9-4410-badb-60f75a5a7f15"/>
+				<text><![CDATA[Nombre departamento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="255" y="5" width="150" height="15" uuid="8a3b6783-2e17-4f3f-a8eb-aefc33d6fa92"/>
+				<text><![CDATA[Localidad departamento]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30">
+			<textField>
+				<reportElement x="35" y="7" width="100" height="15" uuid="e1066ed2-a384-4a5f-8b7a-5d61fafaf493"/>
+				<textFieldExpression><![CDATA[$F{dept_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="105" y="7" width="150" height="15" uuid="059cb2c2-f4b1-48dd-a301-93fbf203fee0"/>
+				<textFieldExpression><![CDATA[$F{dnombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="255" y="7" width="150" height="15" uuid="73da0751-ab6a-4bc3-ab61-ce63f069090a"/>
+				<textFieldExpression><![CDATA[$F{loc}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="32">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="500" height="1" uuid="dfcc5910-4dac-4441-ac68-5e6d6b385586"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineColor="#FF0000"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="390" y="10" width="90" height="20" uuid="de7948bd-429b-43ce-9597-9962f3759ec1"/>
+				<textElement textAlignment="Right">
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="480" y="10" width="40" height="20" uuid="28e8199d-65c4-47d2-b74f-8758c90bdc6c"/>
+				<textElement>
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="60">
+			<rectangle>
+				<reportElement x="0" y="0" width="500" height="25" uuid="1f355035-da2d-4b4a-91f1-f1e5774e7e3e"/>
+			</rectangle>
+			<textField>
+				<reportElement x="10" y="5" width="300" height="15" uuid="c5f69f3b-a514-4704-a90f-acc3fbfd74b5"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA["Total Registros: " +String.valueOf($V{REPORT_COUNT})]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

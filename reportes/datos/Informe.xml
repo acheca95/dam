@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperPrint xmlns="http://jasperreports.sourceforge.net/jasperreports/print" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/print http://jasperreports.sourceforge.net/xsd/jasperprint.xsd" name="agenda" pageWidth="595" pageHeight="842" topMargin="20" leftMargin="20" bottomMargin="20" rightMargin="20" locale="es_ES" timezone="Europe/Paris">
+	<property name="net.sf.jasperreports.export.xml.start.page.index" value="0"/>
+	<property name="net.sf.jasperreports.export.xml.end.page.index" value="0"/>
+	<property name="net.sf.jasperreports.export.xml.page.count" value="1"/>
+	<origin group="ID" band="groupHeader"/>
+	<origin group="ID" band="groupFooter"/>
+	<origin group="NOMBRE" band="groupHeader"/>
+	<origin group="NOMBRE" band="groupFooter"/>
+	<origin group="CIUDAD" band="groupHeader"/>
+	<origin group="CIUDAD" band="groupFooter"/>
+	<origin band="background"/>
+	<origin band="title"/>
+	<origin band="pageHeader"/>
+	<origin band="columnHeader"/>
+	<origin band="detail"/>
+	<origin band="columnFooter"/>
+	<origin band="pageFooter"/>
+	<origin band="summary"/>
+	<page>
+		<text textHeight="12.578125" lineSpacingFactor="1.2578125" leadingOffset="-2.1972656">
+			<reportElement uuid="0832401a-7cd4-446b-8ac5-6ed4a64a72a0" x="91" y="134" width="100" height="30" origin="9" srcId="1" printId="1"/>
+			<textContent><![CDATA[ID]]></textContent>
+		</text>
+		<text textHeight="12.578125" lineSpacingFactor="1.2578125" leadingOffset="-2.1972656">
+			<reportElement uuid="705b7b44-d981-4e41-971b-8d348b4a03ee" x="240" y="134" width="100" height="30" origin="9" srcId="2" printId="1"/>
+			<textContent><![CDATA[NOMBRE]]></textContent>
+		</text>
+		<text textHeight="12.578125" lineSpacingFactor="1.2578125" leadingOffset="-2.1972656">
+			<reportElement uuid="484b0be1-2611-4967-866a-3268f4fc10f8" x="423" y="144" width="100" height="30" origin="9" srcId="3" printId="1"/>
+			<textContent><![CDATA[CIUDAD]]></textContent>
+		</text>
+		<text textHeight="12.578125" lineSpacingFactor="1.2578125" leadingOffset="-2.1972656" valueClass="java.lang.Integer">
+			<reportElement uuid="dc4268bd-c084-44d9-954d-5fd5ceb32d14" x="91" y="217" width="100" height="30" origin="10" srcId="4" printId="1"/>
+			<textContent><![CDATA[2]]></textContent>
+		</text>
+		<text textHeight="12.578125" lineSpacingFactor="1.2578125" leadingOffset="-2.1972656">
+			<reportElement uuid="d587eaca-2f18-40a3-a2fc-2fa9131ff060" x="240" y="217" width="100" height="30" origin="10" srcId="5" printId="1"/>
+			<textContent><![CDATA[MARIO]]></textContent>
+		</text>
+		<text textHeight="12.578125" lineSpacingFactor="1.2578125" leadingOffset="-2.1972656">
+			<reportElement uuid="c6fa9151-e937-4768-8f6e-3a555e0e5704" x="423" y="215" width="100" height="30" origin="10" srcId="6" printId="1"/>
+			<textContent><![CDATA[GRANADA]]></textContent>
+		</text>
+	</page>
+</jasperPrint>

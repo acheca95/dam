@@ -125,13 +125,14 @@ then
 else()
 
 8.
+//obtener todos los datos de la cuenta
 for $sucu in  /sucursales/sucursal[@codigo]
 let $res :=$sucu/concat('codigo sucursal : ',@codigo,' Total saldo debe:',max(cuenta/saldodebe) )
 return $res
 
 9.
 for $sucu in  /sucursales/sucursal/cuenta
-let $res :=$sucu[@tipo='PENSIONES' and aportacion=max(/sucursales/sucursal/cuenta/aportacion)]
+let $res :=$sucu[@tipo='PENSIONES' and aportacion=max(/sucursales/sucursal/cuenta[@tipo='PENSIONES']/aportacion)]
 return $res
 
 ejercicio 4
@@ -165,7 +166,6 @@ order by $prod/nombre
 let $name:=$prod/nombre
 let $den:= (count(/productos/produc[cod_zona=$prod/cod_zona]))
 
-
 return 
 <zona>
 <nombre>{data($name)}</nombre> 
@@ -195,3 +195,45 @@ let $codigo :=$sucu[@codigo]/cuenta[saldohaber=max(saldohaber)]/concat('nombre: 
 return	 $codigo
 
 2.
+for $sucu in /sucursales/sucursal
+let $codigo :=$sucu[@codigo]/cuenta[saldodebe=max(saldodebe)]/concat('nombre: ',nombre,' saldodebe: ',saldodebe)
+return	 $codigo
+
+3.
+for $zone in /zonas/zona
+for $prod in /productos/produc
+let $name:=$prod/denominacion
+let $zona:= ($zone[cod_zona=$prod/cod_zona]/nombre)
+return if($prod/cod_zona=$zone/cod_zona)
+then
+<res>{$name,$zona}</res>
+else()
+4.
+for $zone in /zonas/zona
+for $prod in /productos/produc
+let $name:=$prod/denominacion
+let $zona:= ($zone[cod_zona=$prod/cod_zona]/concat('|Codigo zona: ',cod_zona,' |Zona: ',nombre,' |Director: ',director))
+return if($prod/cod_zona=$zone/cod_zona and $prod/stock_minimo>5)
+then
+<res>{$name,$zona}</res>
+else()
+
+ejercicio 6
+
+1.
+update insert 
+<empleado salario="2340">
+<puesto>Tecnico</puesto>
+<nombre>Pedro Fraile</nombre>
+</empleado>
+into /universidad/departamento[@tipo="B"]
+
+2.
+
+for $uni in /universidad/departamento[codigo="MAT1"]/empleado
+let $salario :=$uni/@salario
+return update value $uni/@salario
+with data($salario)+100
+
+3.
+update rename /departamentos/DEP_ROW as 'filadepar'

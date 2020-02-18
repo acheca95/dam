@@ -1,0 +1,24 @@
+<!-- web_example/web_example.xml -->
+<odoo>
+    <data>
+        <record model="ir.actions.client" id="action_client_example">
+            <field name="name">Example Client Action</field>
+            <field name="tag">example.action</field>
+        </record>
+        <menuitem action="action_client_example"
+                  id="menu_client_example"/>
+    </data>
+    <templates>
+<div t-name="web_example.action" class="oe_web_example oe_web_example_stopped">
+    <h4 class="oe_web_example_timer">00:00:00</h4>
+    <p class="oe_web_example_start">
+        <button type="button">Start</button>
+    </p>
+    <p class="oe_web_example_stop">
+        <button type="button">Stop</button>
+        
+    </p>
+      <ol class="oe_web_example_saved"></ol>
+</div>
+</templates>
+</odoo>

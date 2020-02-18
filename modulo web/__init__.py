@@ -1,5 +1,8 @@
 # __init__.py
-from odoo.osv import orm, fields
+#from . odoo.osv import orm, fields
+from . import orm, fields
+
+
 class Times(orm.Model):
     _name = 'web_example.stopwatch'
 
